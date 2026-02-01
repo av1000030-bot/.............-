@@ -1,76 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Valentine 💖</title>
+<meta charset="UTF-8">
+<title>Valentine 💖</title>
 
-  <style>
-    body {
-      margin: 0;
-      height: 100vh;
-      background: #fff0f5;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-family: Arial, sans-serif;
-      text-align: center;
-    }
+<style>
+body{
+  margin:0;
+  height:100vh;
+  background:#fff0f5;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-family:'Segoe UI', sans-serif;
+  text-align:center;
+}
 
-    .box {
-      max-width: 90%;
-    }
+.container{
+  width:90%;
+  max-width:420px;
+}
 
-    h1 {
-      font-size: 26px;
-      margin-bottom: 20px;
-    }
+h1{
+  font-size:32px;
+  margin-bottom:15px;
+}
 
-    button {
-      padding: 12px 26px;
-      font-size: 18px;
-      border: none;
-      border-radius: 8px;
-      background: #ff4d6d;
-      color: white;
-      cursor: pointer;
-    }
+h2{
+  font-size:26px;
+  margin:15px 0;
+}
 
-    .emoji {
-      font-size: 42px;
-      margin-bottom: 10px;
-    }
+.emoji{
+  font-size:45px;
+}
 
-    .gif {
-      width: 230px;
-      border-radius: 15px;
-      margin-top: 15px;
-    }
-  </style>
+.buttons{
+  position:relative;
+  height:140px;
+  margin-top:25px;
+}
+
+button{
+  padding:12px 28px;
+  font-size:20px;
+  border:none;
+  border-radius:10px;
+  cursor:pointer;
+}
+
+#yes{
+  background:#ff4d6d;
+  color:white;
+}
+
+#no{
+  background:#cfcfcf;
+  position:absolute;
+  left:160px;
+  top:70px;
+}
+
+.gif{
+  width:260px;
+  border-radius:15px;
+  margin-top:15px;
+}
+</style>
 </head>
 
 <body>
 
-  <!-- PAGE 1 -->
-  <div class="box" id="page1">
-    <h1>Vaishhu, will you be my Valentine?</h1>
-    <button onclick="openPage2()">Yes 💕</button>
-  </div>
+<!-- 🎶 Indian Love Instrumental -->
+<audio id="music" autoplay loop>
+  <source src="https://cdn.pixabay.com/audio/2022/10/25/audio_4b7c5f8e55.mp3" type="audio/mpeg">
+</audio>
 
-  <!-- PAGE 2 -->
-  <div class="box" id="page2" style="display:none;">
-    <div class="emoji">💖🥰</div>
-    <h1>Vaishhu, will you be my Valentine?</h1>
-    <h2>Yeahhh 😘</h2>
-    <img class="gif"
-      src="https://media.giphy.com/media/l4FGpP4lxGGgK5CBW/giphy.gif"
-      alt="heart gif">
+<div class="container" id="page1">
+  <div class="emoji">💖🥺</div>
+  <h1>Vaishhu,<br>will you be my Valentine?</h1>
+
+  <div class="buttons">
+    <button id="yes" onclick="openLove()">Yes 💕</button>
+    <button id="no">No 😏</button>
   </div>
+</div>
+
+<div class="container" id="page2" style="display:none;">
+  <div class="emoji">😍💞</div>
+  <h1>Vaishhu,<br>will you be my Valentine?</h1>
+  <h2>Yeahhh 😘</h2>
+  <img class="gif"
+   src="https://media.giphy.com/media/l4FGpP4lxGGgK5CBW/giphy.gif">
+</div>
 
 <script>
-  function openPage2() {
-    document.getElementById("page1").style.display = "none";
-    document.getElementById("page2").style.display = "block";
-  }
+const noBtn = document.getElementById("no");
+const music = document.getElementById("music");
+music.volume = 0.15;
+
+function moveNo(){
+  const x = Math.random()*220;
+  const y = Math.random()*90;
+  noBtn.style.left = x+"px";
+  noBtn.style.top = y+"px";
+}
+
+// desktop + mobile
+noBtn.addEventListener("mouseover", moveNo);
+noBtn.addEventListener("touchstart", moveNo);
+
+function openLove(){
+  document.getElementById("page1").style.display="none";
+  document.getElementById("page2").style.display="block";
+}
 </script>
 
 </body>
