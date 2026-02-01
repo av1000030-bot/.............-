@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Valentine 💖</title>
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: #fff0f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    .box {
+      max-width: 90%;
+    }
+
+    h1 {
+      font-size: 26px;
+      margin-bottom: 20px;
+    }
+
+    button {
+      padding: 12px 26px;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      background: #ff4d6d;
+      color: white;
+      cursor: pointer;
+    }
+
+    .emoji {
+      font-size: 42px;
+      margin-bottom: 10px;
+    }
+
+    .gif {
+      width: 230px;
+      border-radius: 15px;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- PAGE 1 -->
+  <div class="box" id="page1">
+    <h1>Vaishhu, will you be my Valentine?</h1>
+    <button onclick="openPage2()">Yes 💕</button>
+  </div>
+
+  <!-- PAGE 2 -->
+  <div class="box" id="page2" style="display:none;">
+    <div class="emoji">💖🥰</div>
+    <h1>Vaishhu, will you be my Valentine?</h1>
+    <h2>Yeahhh 😘</h2>
+    <img class="gif"
+      src="https://media.giphy.com/media/l4FGpP4lxGGgK5CBW/giphy.gif"
+      alt="heart gif">
+  </div>
+
+<script>
+  function openPage2() {
+    document.getElementById("page1").style.display = "none";
+    document.getElementById("page2").style.display = "block";
+  }
+</script>
+
+</body>
+</html>
